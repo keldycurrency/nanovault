@@ -185,7 +185,7 @@ export class WalletService {
 
 
   async patchOldSavedData() {
-    // Look for saved accounts using an xrb_ prefix
+    // Look for saved accounts using an kld_ prefix
     const walletData = localStorage.getItem(this.storeKey);
     if (!walletData) return true;
 
@@ -193,8 +193,8 @@ export class WalletService {
 
     if (walletJson.accounts) {
       const newAccounts = walletJson.accounts.map(account => {
-        if (account.id.indexOf('xrb_') !== -1) {
-          account.id = account.id.replace('xrb_', 'nano_');
+        if (account.id.indexOf('kld_') !== -1) {
+          account.id = account.id.replace('kld_');
         }
         return account;
       });
@@ -446,7 +446,7 @@ export class WalletService {
     const account: any = await this.ledgerService.getLedgerAccount(index);
 
     const accountID = account.address;
-    const nanoAccountID = accountID.replace('xrb_', 'nano_');
+    const nanoAccountID = accountID.replace('kld_');
     const addressBookName = this.addressBook.getAccountName(nanoAccountID);
 
     const newAccount: WalletAccount = {

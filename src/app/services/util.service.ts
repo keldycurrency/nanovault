@@ -217,11 +217,7 @@ function getPublicAccountID(accountPublicKeyBytes, prefix = 'nano') {
 
 function getAccountPublicKey(account) {
   if (account.length == 64) {
-    if(!account.startsWith('xrb_1') && !account.startsWith('xrb_3')) {
-      throw new Error(`Invalid NANO Account`);
-    }
-  } else if (account.length == 65) {
-    if(!account.startsWith('nano_1') && !account.startsWith('nano_3')) {
+    if(!account.startsWith('kld_1') && !account.startsWith('kld_3')) {
       throw new Error(`Invalid NANO Account`);
     }
   } else {
@@ -241,11 +237,11 @@ function getAccountPublicKey(account) {
   return uint4ToHex(key_uint4);
 }
 
-function setPrefix(account, prefix = 'xrb') {
-  if (prefix === 'nano') {
-    return account.replace('xrb_', 'nano_');
+function setPrefix(account, prefix = 'kld') {
+  if (prefix === 'kld') {
+    return account.replace('kld_');
   } else {
-    return account.replace('nano_', 'xrb_');
+    return account.replace('kld_');
   }
 }
 

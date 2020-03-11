@@ -15,7 +15,7 @@ export interface NinjaVerifiedRep {
 @Injectable()
 export class ApiService {
   // apiUrl = `http://localhost:9950/api`;
-  apiUrl = `https://nanovault.io/api`;
+  apiUrl = `https://vault.keldy.africa/api`;
   rpcUrl = `${this.apiUrl}/node-api`;
 
   constructor(private http: HttpClient, private node: NodeService, private appSettings: AppSettingsService) { }

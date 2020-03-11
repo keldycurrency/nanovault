@@ -94,7 +94,7 @@ export class ConfigureAppComponent implements OnInit {
   selectedPoWOption = this.powOptions[0].value;
 
   // prefixOptions = [
-  //   { name: 'xrb_', value: 'xrb' },
+  //   { name: 'kld_', value: 'xrb' },
   //   { name: 'nano_', value: 'nano' },
   // ];
   // selectedPrefix = this.prefixOptions[0].value;
