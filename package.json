@@ -1,5 +1,5 @@
 {
-  "name": "NanoVault",
+  "name": "KeldyVault",
   "version": "1.2.1",
   "license": "MIT",
   "description": "Wallet for interacting with Nano",
@@ -91,7 +91,7 @@
   "build": {
     "appId": "com.electron.nanovault",
     "buildVersion": "1.2.1",
-    "productName": "NanoVault",
+    "productName": "KeldyVault",
     "copyright": "Copyright © 2019 Andrew Steele",
     "directories": {
       "output": "desktop-app/build",
@@ -103,9 +103,9 @@
       "extendInfo": {
         "CFBundleURLTypes": [
           {
-            "CFBundleURLName": "xrb",
+            "CFBundleURLName": "kld",
             "CFBundleURLSchemes": [
-              "xrb"
+              "kld"
             ]
           }
         ]
@@ -122,9 +122,9 @@
       }
     ],
     "protocols": {
-      "name": "xrb",
+      "name": "kld",
       "schemes": [
-        "xrb"
+        "kld"
       ],
       "role": "Viewer"
     }

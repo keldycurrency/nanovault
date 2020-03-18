@@ -50,7 +50,7 @@ export class AppComponent implements OnInit {
     this.windowHeight = window.innerHeight;
     this.settings.loadAppSettings();
 
-    // New for v19: Patch saved xrb_ prefixes to nano_
+    // New for v19: Patch saved kld_ prefixes to nano_
     await this.patchXrbToNanoPrefixData();
 
     this.addressBook.loadAddressBook();
@@ -81,10 +81,10 @@ export class AppComponent implements OnInit {
       this.walletService.lockWallet();
     });
 
-    // Listen for an xrb: protocol link, triggered by the desktop application
+    // Listen for an kld: protocol link, triggered by the desktop application
     window.addEventListener('protocol-load', (e: CustomEvent) => {
       const protocolText = e.detail;
-      const stripped = protocolText.split('').splice(4).join(''); // Remove xrb:
+      const stripped = protocolText.split('').splice(4).join(''); // Remove kld:
       if (stripped.startsWith('kld_')) {
         this.router.navigate(['account', stripped]);
       }
@@ -120,7 +120,7 @@ export class AppComponent implements OnInit {
     // If wallet is version 2, data has already been patched.  Otherwise, patch all data
     if (this.settings.settings.walletVersion >= 2) return;
 
-    await this.walletService.patchOldSavedData(); // Change saved kld_ addresses to nano_
+    await this.walletService.patchOldSavedData(); // Change saved kld_ addresses to kld_
     this.addressBook.patchXrbPrefixData();
     this.representative.patchXrbPrefixData();
 
@@ -143,7 +143,7 @@ export class AppComponent implements OnInit {
     } else if (searchData.length === 64) {
       this.router.navigate(['transaction', searchData]);
     } else {
-      this.notifications.sendWarning(`Invalid Nano account or transaction hash!`)
+      this.notifications.sendWarning(`Invalid KELDY account or transaction hash!`)
     }
     this.searchData = '';
   }
@@ -154,7 +154,7 @@ export class AppComponent implements OnInit {
 
   retryConnection() {
     this.walletService.reloadBalances(true);
-    this.notifications.sendInfo(`Attempting to reconnect to Nano node`);
+    this.notifications.sendInfo(`Attempting to reconnect to Keldy node`);
   }
 
   async updateFiatPrices() {

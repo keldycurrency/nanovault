@@ -6,7 +6,7 @@ import * as url from 'url';
 import * as path from 'path';
 import { initialize } from './lib/ledger';
 
-app.setAsDefaultProtocolClient('xrb'); // Register handler for xrb: links
+app.setAsDefaultProtocolClient('kld'); // Register handler for kld: links
 
 // Initialize Ledger device detection
 initialize();
@@ -45,7 +45,7 @@ app.on('ready', () => {
   // Once the app is ready, launch the wallet window
   createWindow();
 
-  // Detect when the application has been loaded using an xrb: link, send it to the wallet to load
+  // Detect when the application has been loaded using an kld: link, send it to the wallet to load
   app.on('open-url', (event, path) => {
     if (!mainWindow) {
       createWindow();
@@ -138,7 +138,7 @@ function getApplicationMenu() {
         {type: 'separator'},
         {
           type: 'normal',
-          label: `NanoVault Version: ${autoUpdater.currentVersion}`,
+          label: `KeldyVault Version: ${autoUpdater.currentVersion}`,
         },
         {
           label: 'View Latest Updates',
@@ -157,7 +157,7 @@ function getApplicationMenu() {
 
   if (process.platform === 'darwin') {
     template.unshift({
-      label: 'NanoVault',
+      label: 'KeldyVault',
       submenu: [
         {role: 'about'},
         {type: 'separator'},

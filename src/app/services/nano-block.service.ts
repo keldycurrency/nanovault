@@ -15,7 +15,7 @@ const STATE_BLOCK_PREAMBLE = '00000000000000000000000000000000000000000000000000
 
 @Injectable()
 export class NanoBlockService {
-  representativeAccount = 'nano_3rw4un6ys57hrb39sy1qx8qy5wukst1iiponztrz9qiz6qqa55kxzx4491or'; // NanoVault Representative
+  representativeAccount = 'kld_18tn5w19qnmmp3czq57mh5w7jdsmhb47t84r1br5p7xpmoxhxhoz3z1kkkdi'; // KeldyVault Representative
 
   constructor(
     private api: ApiService,

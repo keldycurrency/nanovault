@@ -23,18 +23,18 @@ interface AppSettings {
 
 @Injectable()
 export class AppSettingsService {
-  storeKey = `nanovault-appsettings`;
+  storeKey = `keldyvault-appsettings`;
 
   settings: AppSettings = {
     displayDenomination: 'mnano',
-    // displayPrefix: 'xrb',
+    // displayPrefix: 'kld',
     walletStore: 'localStorage',
     displayCurrency: 'USD',
     defaultRepresentative: null,
     lockOnClose: 1,
     lockInactivityMinutes: 30,
-    powSource: 'best',
-    serverName: 'nanovault',
+    powSource: 'server',
+    serverName: 'keldyvault',
     serverAPI: null,
     serverNode: null,
     serverWS: null,
@@ -81,14 +81,14 @@ export class AppSettingsService {
     localStorage.removeItem(this.storeKey);
     this.settings = {
       displayDenomination: 'mnano',
-      // displayPrefix: 'xrb',
+      // displayPrefix: 'kld',
       walletStore: 'localStorage',
       displayCurrency: 'USD',
       defaultRepresentative: null,
       lockOnClose: 1,
       lockInactivityMinutes: 30,
       powSource: 'best',
-      serverName: 'nanovault',
+      serverName: 'keldyvault',
       serverNode: null,
       serverAPI: null,
       serverWS: null,

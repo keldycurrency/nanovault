@@ -206,7 +206,7 @@ function generateAccountKeyPair(accountSecretKeyBytes) {
   return nacl.sign.keyPair.fromSecretKey(accountSecretKeyBytes);
 }
 
-function getPublicAccountID(accountPublicKeyBytes, prefix = 'nano') {
+function getPublicAccountID(accountPublicKeyBytes, prefix = 'kld') {
   const accountHex = util.uint8.toHex(accountPublicKeyBytes);
   const keyBytes = util.uint4.toUint8(util.hex.toUint4(accountHex)); // For some reason here we go from u, to hex, to 4, to 8??
   const checksum = util.uint5.toString(util.uint4.toUint5(util.uint8.toUint4(blake.blake2b(keyBytes, null, 5).reverse())));
@@ -218,14 +218,14 @@ function getPublicAccountID(accountPublicKeyBytes, prefix = 'nano') {
 function getAccountPublicKey(account) {
   if (account.length == 64) {
     if(!account.startsWith('kld_1') && !account.startsWith('kld_3')) {
-      throw new Error(`Invalid NANO Account`);
+      throw new Error(`Invalid KELDY account`);
     }
   } else {
-    throw new Error(`Invalid NANO Account`);
+    throw new Error(`Invalid KELDY account`);
   }
   const account_crop = account.length == 64 ? account.substring(4,64) : account.substring(5,65);
   const isValid = /^[13456789abcdefghijkmnopqrstuwxyz]+$/.test(account_crop);
-  if (!isValid) throw new Error(`Invalid NANO account`);
+  if (!isValid) throw new Error(`Invalid KELDY account`);
 
   const key_uint4 = array_crop(uint5ToUint4(stringToUint5(account_crop.substring(0, 52))));
   const hash_uint4 = uint5ToUint4(stringToUint5(account_crop.substring(52, 60)));
